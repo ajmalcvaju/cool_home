@@ -75,6 +75,22 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      // Construct a pre-filled WhatsApp message containing the form details
+      const messageText = `Hello Cool Home! I would like to book a doorstep service.
+
+📋 Booking Details:
+• Name: ${formData.name}
+• Phone: ${formData.phone}
+• Service Needed: ${formData.serviceType}
+• Preferred Date: ${formData.preferredDate}
+${formData.message.trim() ? `• Additional Notes: ${formData.message}` : ""}`;
+
+      const encodedMessage = encodeURIComponent(messageText);
+      const whatsappUrl = `https://wa.me/919567678575?text=${encodedMessage}`;
+      
+      // Open WhatsApp chat in a new tab
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
       setIsSubmitted(true);
     }
   };
@@ -209,7 +225,7 @@ export default function Contact() {
           </div>
 
           {/* Right Column: Booking Form */}
-          <div className="lg:col-span-7 bg-white rounded-3xl p-7 sm:p-12 shadow-md border border-slate-100 reveal-right">
+          <div id="booking-form" className="lg:col-span-7 bg-white rounded-3xl p-7 sm:p-12 shadow-md border border-slate-100 reveal-right">
             {isSubmitted ? (
               <div className="py-12 px-4 flex flex-col items-center justify-center text-center space-y-6 animate-scale">
                 <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500 shadow-inner">

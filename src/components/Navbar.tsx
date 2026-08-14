@@ -1,5 +1,17 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Calendar } from "lucide-react";
+import { 
+  Menu, 
+  X, 
+  Phone, 
+  Calendar, 
+  Home as HomeIcon, 
+  Info, 
+  Wind, 
+  Droplet, 
+  Tv, 
+  Sun, 
+  Mail 
+} from "lucide-react";
 import { BUSINESS_INFO } from "../data/siteData";
 
 export default function Navbar({ currentRoute }: { currentRoute: string }) {
@@ -19,13 +31,13 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
   }, []);
 
   const navLinks = [
-    { label: "Home", href: "/home", path: "/home" },
-    { label: "About", href: "/about", path: "/about" },
-    { label: "AC Services", href: "/ac-services", path: "/ac-services" },
-    { label: "Water Purifier", href: "/water-purifier", path: "/water-purifier" },
-    { label: "Appliances", href: "/appliances", path: "/appliances" },
-    { label: "Solar Energy", href: "/solar", path: "/solar" },
-    { label: "Contact", href: "/contact", path: "/contact" },
+    { label: "Home", href: "/home", path: "/home", icon: HomeIcon },
+    { label: "About", href: "/about", path: "/about", icon: Info },
+    { label: "AC Services", href: "/ac-services", path: "/ac-services", icon: Wind },
+    { label: "Water Purifier", href: "/water-purifier", path: "/water-purifier", icon: Droplet },
+    { label: "Appliances", href: "/appliances", path: "/appliances", icon: Tv },
+    { label: "Solar Energy", href: "/solar", path: "/solar", icon: Sun },
+    { label: "Contact", href: "/contact", path: "/contact", icon: Mail },
   ];
 
   const isActive = (path: string) => {
@@ -54,7 +66,7 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden xl:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -74,7 +86,7 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
           <div className="hidden lg:flex items-center space-x-4">
             <a
               href={BUSINESS_INFO.phoneLink}
-              className="flex items-center space-x-2 text-slate-700 hover:text-primary-blue font-semibold transition-colors group"
+              className="flex items-center space-x-2 text-slate-700 hover:text-primary-blue font-semibold transition-colors group cursor-pointer"
             >
               <span className="p-2 rounded-full bg-slate-100 group-hover:bg-sky-100 transition-colors">
                 <Phone className="w-4 h-4 text-primary-blue" />
@@ -82,7 +94,7 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
               <span className="text-xs font-bold">{BUSINESS_INFO.phone}</span>
             </a>
             <a
-              href="/contact"
+              href="/contact#booking-form"
               className="flex items-center space-x-2 bg-accent-orange hover:bg-accent-orange-hover text-white px-5 py-2.5 rounded-full font-bold text-xs shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/30 transform hover:-translate-y-0.5 transition-all cursor-pointer"
             >
               <Calendar className="w-3.5 h-3.5" />
@@ -91,7 +103,7 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
           </div>
 
           {/* Mobile hamburger menu */}
-          <div className="xl:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 rounded-lg text-slate-600 hover:text-primary-dark hover:bg-slate-100 focus:outline-none cursor-pointer"
@@ -107,61 +119,46 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
         </div>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Navigation Dropdown Menu (Full Horizontal Cover) */}
       <div
-        className={`xl:hidden fixed inset-y-0 right-0 w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        className={`lg:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-100 transition-all duration-300 ease-in-out origin-top overflow-y-auto max-h-[calc(100vh-80px)] ${
+          isMobileMenuOpen ? "scale-y-100 opacity-100 py-6" : "scale-y-0 opacity-0 h-0 pointer-events-none"
         }`}
       >
-        <div className="p-6 h-full flex flex-col justify-between">
-          <div>
-            <div className="flex justify-between items-center pb-6 border-b border-slate-100">
-              <div className="flex flex-col">
-                <span className="font-extrabold text-xl tracking-tight text-primary-dark">
-                  COOL <span className="text-accent-cyan">HOME</span>
-                </span>
-                <span className="text-[9px] uppercase font-semibold text-neutral-muted">
-                  Cooling • Appliances • Solar
-                </span>
-              </div>
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 cursor-pointer"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            <div className="py-6 flex flex-col space-y-3">
-              {navLinks.map((link) => (
+        <div className="px-4 sm:px-6 space-y-5">
+          <div className="grid sm:grid-cols-2 gap-2">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`font-semibold text-base py-2 block border-b border-slate-50 transition-colors ${
+                  className={`flex items-center space-x-3.5 px-4 py-3 rounded-2xl transition-all cursor-pointer group ${
                     isActive(link.path)
-                      ? "text-primary-blue border-l-4 border-primary-blue pl-3 font-bold"
-                      : "text-slate-700 hover:text-primary-blue"
+                      ? "bg-sky-50/70 text-primary-blue font-bold"
+                      : "text-slate-700 hover:bg-slate-50 hover:text-primary-blue"
                   }`}
                 >
-                  {link.label}
+                  <Icon className={`w-5 h-5 shrink-0 transition-transform group-hover:scale-110 ${isActive(link.path) ? "text-primary-blue" : "text-slate-400 group-hover:text-primary-blue"}`} />
+                  <span className="text-sm font-semibold">{link.label}</span>
                 </a>
-              ))}
-            </div>
+              );
+            })}
           </div>
 
-          <div className="space-y-3 border-t border-slate-100 pt-5">
+          <div className="flex flex-col sm:flex-row gap-3 pt-5 border-t border-slate-100">
             <a
               href={BUSINESS_INFO.phoneLink}
-              className="flex items-center justify-center space-x-3 w-full bg-slate-100 hover:bg-slate-200 text-slate-800 py-3 rounded-xl font-bold transition-all text-sm"
+              className="flex items-center justify-center space-x-3 flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 py-3.5 rounded-2xl font-bold transition-all text-sm cursor-pointer"
             >
-              <Phone className="w-4 h-4 text-primary-blue" />
+              <Phone className="w-4 h-4 text-primary-blue animate-pulse" />
               <span>{BUSINESS_INFO.phone}</span>
             </a>
             <a
-              href="/contact"
+              href="/contact#booking-form"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center space-x-3 w-full bg-accent-orange hover:bg-accent-orange-hover text-white py-3 rounded-xl font-bold shadow-lg shadow-orange-500/10 transition-all cursor-pointer text-sm"
+              className="flex items-center justify-center space-x-3 flex-1 bg-accent-orange hover:bg-accent-orange-hover text-white py-3.5 rounded-2xl font-bold shadow-md hover:shadow-lg transition-all cursor-pointer text-sm"
             >
               <Calendar className="w-4 h-4" />
               <span>Book a Service</span>
@@ -173,7 +170,7 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
       {isMobileMenuOpen && (
         <div
           onClick={() => setIsMobileMenuOpen(false)}
-          className="fixed inset-0 bg-black/30 backdrop-blur-xs z-40 xl:hidden"
+          className="fixed inset-x-0 bottom-0 top-[64px] sm:top-[72px] bg-slate-900/30 backdrop-blur-xs z-40 lg:hidden"
         />
       )}
     </nav>

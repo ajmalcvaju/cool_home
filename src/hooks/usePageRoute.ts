@@ -10,18 +10,37 @@ export function usePageRoute() {
   const [currentRoute, setCurrentRoute] = useState(getPath());
 
   useEffect(() => {
+    const handleScrollToHash = () => {
+      if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        const element = document.getElementById(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 100);
+          return;
+        }
+      }
+      window.scrollTo(0, 0);
+    };
+
     const handlePopState = () => {
       setCurrentRoute(getPath());
-      window.scrollTo(0, 0);
+      handleScrollToHash();
     };
 
     const handlePushStateNav = () => {
       setCurrentRoute(getPath());
-      window.scrollTo(0, 0);
+      handleScrollToHash();
     };
 
     window.addEventListener("popstate", handlePopState);
     window.addEventListener("pushstate-navigation", handlePushStateNav);
+
+    // Initial load hash scroll
+    if (window.location.hash) {
+      handleScrollToHash();
+    }
 
     return () => {
       window.removeEventListener("popstate", handlePopState);

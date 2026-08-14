@@ -26,7 +26,7 @@ export default function SpecialServiceCTA() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md sm:max-w-none mx-auto pt-4">
           <a
-            href="/contact"
+            href="/contact#booking-form"
             className="flex items-center justify-center space-x-2.5 bg-accent-orange hover:bg-accent-orange-hover text-white w-full sm:w-auto px-8 py-4 rounded-full font-bold text-base shadow-lg shadow-orange-500/25 hover:shadow-xl hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all text-center select-none cursor-pointer"
           >
             <Calendar className="w-5 h-5" />
