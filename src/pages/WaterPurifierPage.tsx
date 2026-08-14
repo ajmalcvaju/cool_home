@@ -1,5 +1,5 @@
 import * as Icons from "lucide-react";
-import { WATER_SERVICES, WATER_PRODUCTS } from "../data/siteData";
+import { WATER_SERVICES, WATER_PRODUCTS, WATER_TREATMENT_PRODUCTS } from "../data/siteData";
 import { Droplet, CheckCircle, Layers } from "lucide-react";
 
 function ServiceIcon({ name, className }: { name: string; className?: string }) {
@@ -206,6 +206,68 @@ export default function WaterPurifierPage() {
               </div>
             ))}
           </div>
+
+          {/* Subheading for Water Treatment Plants */}
+          <div className="text-center max-w-3xl mx-auto mt-28 mb-16">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-primary-dark tracking-tight mb-4">
+              Water Treatment Plants & Softeners
+            </h3>
+            <p className="text-neutral-muted text-base">
+              Explore heavy-duty filtration and softening systems designed for villas, commercial complexes, and industrial units.
+            </p>
+          </div>
+
+          {/* Water Treatment Plants Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {WATER_TREATMENT_PRODUCTS.map((product) => (
+              <div
+                key={product.id}
+                className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div className="relative h-60 overflow-hidden bg-slate-100 flex items-center justify-center">
+                  <img
+                    src={product.image}
+                    alt={product.imageAlt}
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <span className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-xl border border-slate-100 text-[10px] font-extrabold uppercase tracking-wider text-slate-800 shadow-sm">
+                    On-Site Survey Free
+                  </span>
+                </div>
+
+                <div className="p-7 md:p-8 flex-grow flex flex-col justify-between text-left">
+                  <div>
+                    <h3 className="font-display font-extrabold text-xl text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">
+                      {product.title}
+                    </h3>
+                    <p className="text-neutral-muted text-sm leading-relaxed mb-6">
+                      {product.description}
+                    </p>
+
+                    <ul className="space-y-2.5 mb-8">
+                      <li className="flex items-center space-x-2 text-xs font-semibold text-slate-700">
+                        <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+                        <span>Heavy-Duty Durable Construction</span>
+                      </li>
+                      <li className="flex items-center space-x-2 text-xs font-semibold text-slate-700">
+                        <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+                        <span>Complete Pipeline Integration Included</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <button
+                    onClick={() => handleEnquire(product.title)}
+                    className="w-full py-4 bg-accent-cyan hover:bg-[#0096b4] text-primary-dark hover:text-white rounded-2xl font-bold text-sm shadow-md transition-colors cursor-pointer"
+                  >
+                    Request Callback & Survey
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 

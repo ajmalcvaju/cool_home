@@ -9,16 +9,18 @@ export default function Footer() {
     { label: "About Us", href: "/about" },
     { label: "AC Services", href: "/ac-services" },
     { label: "Water Purifier", href: "/water-purifier" },
+    { label: "Home Appliances", href: "/appliances" },
+    { label: "Solar Energy", href: "/solar" },
     { label: "Contact Us", href: "/contact" },
   ];
 
   const servicesLinks = [
-    { label: "AC Repair", href: "/ac-services" },
-    { label: "AC Installation", href: "/ac-services" },
-    { label: "AC Servicing", href: "/ac-services" },
-    { label: "AC Maintenance", href: "/ac-services" },
-    { label: "Water Purifier Service", href: "/water-purifier" },
-    { label: "Filter Replacement", href: "/water-purifier" },
+    { label: "AC Jet Servicing & Gas", href: "/ac-services" },
+    { label: "RO Filter Replacement", href: "/water-purifier" },
+    { label: "Refrigerator Repair", href: "/appliances" },
+    { label: "Washing Machine Service", href: "/appliances" },
+    { label: "Rooftop Solar Installation", href: "/solar" },
+    { label: "Solar Panel Maintenance", href: "/solar" },
   ];
 
   return (
@@ -35,11 +37,11 @@ export default function Footer() {
                 COOL <span className="text-accent-cyan">HOME</span>
               </span>
               <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mt-0.5">
-                AC & Water Purifier Solutions
+                Cooling • Appliances • Solar Solutions
               </span>
             </a>
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Complete AC sales, installation, repair, servicing and maintenance alongside multi-stage RO, UV and UF water purifier sales and expert filter services.
+              Complete sales, installation, repair, and AMC maintenance for Air Conditioners, RO Water Purifiers, Refrigerators, Washing Machines, and Rooftop Solar Panel systems.
             </p>
           </div>
 

@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import AboutPage from "./pages/AboutPage";
 import ACServicesPage from "./pages/ACServicesPage";
 import WaterPurifierPage from "./pages/WaterPurifierPage";
+import AppliancesPage from "./pages/AppliancesPage";
+import SolarPage from "./pages/SolarPage";
 import ContactPage from "./pages/ContactPage";
 
 // Import hooks
@@ -51,6 +53,10 @@ export default function App() {
         return <ACServicesPage />;
       case "/water-purifier":
         return <WaterPurifierPage />;
+      case "/appliances":
+        return <AppliancesPage />;
+      case "/solar":
+        return <SolarPage />;
       case "/contact":
         return <ContactPage />;
       default:

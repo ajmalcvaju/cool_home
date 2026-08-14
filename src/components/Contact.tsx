@@ -17,14 +17,17 @@ export default function Contact() {
   const serviceOptions = [
     "AC Installation",
     "AC Repair",
-    "AC Servicing",
+    "AC Jet Servicing",
     "AC Gas Charging",
-    "AC Maintenance",
-    "AC AMC",
+    "AC Maintenance / AMC",
     "Water Purifier Installation",
     "Water Purifier Repair",
     "Filter Replacement",
     "Water Purifier AMC",
+    "Refrigerator Repair / Gas Charging",
+    "Washing Machine Repair / Drum Fix",
+    "Rooftop Solar Installation / Net Metering",
+    "Solar Panel Cleaning & Maintenance",
     "Product Enquiry",
     "Other",
   ];
@@ -103,13 +106,13 @@ export default function Contact() {
             Book Your Service Today
           </h2>
           <p className="text-neutral-muted text-base sm:text-lg">
-            Request an expert visit, ask for a free product estimation, or contact emergency support.
+            Request an expert visit for AC, Water Purifiers, Refrigerators, Washing Machines, or Solar Panels.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-start">
           
-          {/* Left Column: Contact Details + Mockup Map */}
+          {/* Left Column */}
           <div className="lg:col-span-5 space-y-8 reveal-left text-left">
             <div className="bg-white rounded-3xl p-7 sm:p-9 shadow-sm border border-slate-100 space-y-6">
               
@@ -118,7 +121,7 @@ export default function Contact() {
                   {BUSINESS_INFO.name}
                 </h3>
                 <p className="text-xs uppercase font-extrabold tracking-widest text-neutral-muted">
-                  AC & Water Purifier Sales & Service
+                  Cooling • Purifiers • Appliances • Solar
                 </p>
               </div>
 
@@ -172,24 +175,24 @@ export default function Contact() {
 
             </div>
 
-            {/* Map Frame with Get Directions */}
+            {/* Map Frame */}
             <div className="bg-white rounded-3xl p-7 shadow-sm border border-slate-100 flex flex-col space-y-4">
-              <h4 className="font-display font-extrabold text-base text-slate-900">Our Location</h4>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h4 className="font-display font-extrabold text-base text-slate-900">Our Location</h4>
+                <span className="text-[10px] font-extrabold text-neutral-muted bg-slate-50 border border-slate-100 px-2.5 py-1 rounded-md tracking-wider">
+                  11°35'20.2"N 75°35'19.7"E
+                </span>
+              </div>
               
-              <div className="relative h-48 bg-sky-50 rounded-2xl overflow-hidden border border-slate-200 flex items-center justify-center select-none">
-                <svg className="absolute inset-0 w-full h-full text-slate-200/80 stroke-current" strokeWidth="2">
-                  <line x1="0" y1="30" x2="400" y2="30" />
-                  <line x1="0" y1="110" x2="400" y2="110" />
-                  <line x1="80" y1="0" x2="80" y2="200" />
-                  <line x1="260" y1="0" x2="260" y2="200" />
-                  <path d="M 0 60 Q 180 80 400 130" fill="none" className="text-sky-300 stroke-4" />
-                  <path d="M 120 0 Q 140 120 280 200" fill="none" className="text-blue-300 stroke-3" />
-                </svg>
-
-                <div className="absolute bg-white/95 backdrop-blur-xs px-4 py-2.5 rounded-2xl shadow-lg border border-slate-100 flex items-center space-x-2.5 animate-float">
-                  <MapPin className="w-5 h-5 text-accent-orange fill-accent-orange/10 animate-bounce" />
-                  <span className="text-xs font-extrabold text-slate-800">Cool Home</span>
-                </div>
+              <div className="relative h-48 bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
+                <iframe
+                  title="Cool Home Location Map"
+                  src="https://maps.google.com/maps?q=11.5889494,75.5887989&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
 
               <a
@@ -217,7 +220,7 @@ export default function Contact() {
                     Booking Successful!
                   </h3>
                   <p className="text-neutral-muted text-sm sm:text-base max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-slate-800">{formData.name}</strong>. Your service request for <strong className="text-slate-800">{formData.serviceType}</strong> has been logged. Our diagnostic coordinator will call you back on <strong className="text-slate-800">{formData.phone}</strong> in a few minutes.
+                    Thank you, <strong className="text-slate-800">{formData.name}</strong>. Your service request for <strong className="text-slate-800">{formData.serviceType}</strong> has been logged. Our coordinator will call you back on <strong className="text-slate-800">{formData.phone}</strong> in a few minutes.
                   </p>
                 </div>
                 <button
@@ -234,7 +237,7 @@ export default function Contact() {
                     Schedule Doorstep Visit
                   </h3>
                   <p className="text-neutral-muted text-sm text-left mt-1.5">
-                    Fill out the form below. We will confirm your technician's arrival date and slot.
+                    Select your service category. Our verified technician will arrive on your preferred slot.
                   </p>
                 </div>
 
@@ -355,7 +358,7 @@ export default function Contact() {
                     rows={4}
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="Provide details of the problem (e.g. AC not cooling, filter indicator blinking red, RO leakage, etc.)"
+                    placeholder="Provide details of the issue or requirement (e.g. Fridge not cooling, Washing machine drum shaking, 3kW Rooftop solar enquiry, etc.)"
                     className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-slate-50 focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-primary-blue transition-all resize-none"
                   />
                 </div>
