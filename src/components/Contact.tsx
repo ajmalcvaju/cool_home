@@ -24,6 +24,7 @@ export default function Contact() {
     "Water Purifier Repair",
     "Filter Replacement",
     "Water Purifier AMC",
+    "Water Treatment & Softeners",
     "Refrigerator Repair / Gas Charging",
     "Washing Machine Repair / Drum Fix",
     "Rooftop Solar Installation / Net Metering",
@@ -142,18 +143,26 @@ ${formData.message.trim() ? `• Additional Notes: ${formData.message}` : ""}`;
               </div>
 
               <div className="space-y-4 pt-4 border-t border-slate-100">
-                <a
-                  href={BUSINESS_INFO.phoneLink}
-                  className="flex items-start space-x-4 p-3 rounded-2xl hover:bg-slate-50 transition-colors group"
+                <div
+                  className="flex items-start space-x-4 p-3 rounded-2xl hover:bg-slate-50/50 transition-colors"
                 >
-                  <div className="p-3 bg-blue-50 text-primary-blue rounded-xl group-hover:bg-primary-blue group-hover:text-white transition-all">
-                    <Phone className="w-5 h-5" />
+                  <div className="p-3 bg-blue-50 text-primary-blue rounded-xl transition-all">
+                    <Phone className="w-5 h-5 animate-pulse" />
                   </div>
-                  <div>
+                  <div className="text-left">
                     <h4 className="text-xs font-bold text-neutral-muted uppercase tracking-wider">Call Helpdesk</h4>
-                    <p className="text-base font-extrabold text-slate-800 mt-0.5">{BUSINESS_INFO.phone}</p>
+                    <p className="text-base font-extrabold text-slate-800 mt-0.5">
+                      <a href={BUSINESS_INFO.phoneLink} className="hover:text-primary-blue transition-colors block">
+                        {BUSINESS_INFO.phone}
+                      </a>
+                    </p>
+                    <p className="text-base font-extrabold text-slate-800 mt-0.5">
+                      <a href={BUSINESS_INFO.phoneLink2} className="hover:text-primary-blue transition-colors block">
+                        {BUSINESS_INFO.phone2}
+                      </a>
+                    </p>
                   </div>
-                </a>
+                </div>
 
                 <a
                   href={`mailto:${BUSINESS_INFO.email}`}

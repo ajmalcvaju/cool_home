@@ -49,6 +49,10 @@ export const BUSINESS_INFO = {
   phoneLink: "tel:+919567678575",
   whatsapp: "+91 95676 78575",
   whatsappLink: "https://wa.me/919567678575?text=Hello%20Cool%20Home%2C%20I%20would%20like%20to%20book%20a%20service.",
+  phone2: "+91 94976 29575",
+  phoneLink2: "tel:+919497629575",
+  whatsapp2: "+91 94976 29575",
+  whatsappLink2: "https://wa.me/919497629575?text=Hello%20Cool%20Home%2C%20I%20would%20like%20to%20book%20a%20service.",
   email: "info@coolhomeplaceholder.com",
   address: "Vadakara Bus Stand, Vadakara, Kozhikode - 673101, Kerala",
   hours: "Monday - Sunday: 8:00 AM - 9:00 PM",
@@ -118,7 +122,7 @@ export const WATER_SERVICES: ServiceItem[] = [
   {
     id: "wp-install",
     title: "Purifier Installation",
-    description: "Wall mounting, pressure valve fitting, wastewater tube routing, and clean input line connections.",
+    description: "Wall mounting, pressure value fitting, wastewater tube routing, and clean input line connections.",
     iconName: "Layers",
     image: "/water_purifier_user.png"
   },
@@ -142,6 +146,13 @@ export const WATER_SERVICES: ServiceItem[] = [
     description: "Flexible Annual Contracts cover periodic filter replacements, sanitization, and unlimited support visits.",
     iconName: "CheckSquare",
     image: "/wp_amc_user.png"
+  },
+  {
+    id: "water-treatment-service",
+    title: "Water Treatment Plants & Softeners",
+    description: "Comprehensive installation, filtration media refilling, pressure checks, and servicing for domestic softeners and commercial plants.",
+    iconName: "Settings",
+    image: "/water_treatment_plant_user.png"
   }
 ];
 

@@ -91,27 +91,49 @@ export default function Footer() {
               Contact Us
             </h4>
             <div className="space-y-3.5 text-sm text-slate-400">
-              <a
-                href={BUSINESS_INFO.phoneLink}
-                className="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors"
-              >
+              <div className="flex items-center space-x-3 text-slate-300">
                 <div className="p-2 rounded-lg bg-white/5 text-accent-cyan">
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-4 h-4 animate-pulse" />
                 </div>
-                <span className="font-bold">{BUSINESS_INFO.phone}</span>
-              </a>
+                <div className="flex flex-col text-left">
+                  <a
+                    href={BUSINESS_INFO.phoneLink}
+                    className="hover:text-white transition-colors font-bold"
+                  >
+                    {BUSINESS_INFO.phone}
+                  </a>
+                  <a
+                    href={BUSINESS_INFO.phoneLink2}
+                    className="hover:text-white transition-colors font-bold mt-0.5 text-slate-400 text-xs"
+                  >
+                    {BUSINESS_INFO.phone2}
+                  </a>
+                </div>
+              </div>
 
-              <a
-                href={BUSINESS_INFO.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors"
-              >
+              <div className="flex items-center space-x-3 text-slate-300">
                 <div className="p-2 rounded-lg bg-white/5 text-emerald-400">
                   <MessageSquare className="w-4 h-4 fill-current" />
                 </div>
-                <span>WhatsApp Message</span>
-              </a>
+                <div className="flex flex-col text-left">
+                  <a
+                    href={BUSINESS_INFO.whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors font-semibold"
+                  >
+                    Chat on WhatsApp (Primary)
+                  </a>
+                  <a
+                    href={BUSINESS_INFO.whatsappLink2}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors font-semibold mt-0.5 text-slate-400 text-xs"
+                  >
+                    Chat on WhatsApp (Secondary)
+                  </a>
+                </div>
+              </div>
 
               <div className="flex items-center space-x-3 text-slate-300">
                 <div className="p-2 rounded-lg bg-white/5 text-accent-cyan">

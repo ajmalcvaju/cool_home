@@ -52,22 +52,24 @@ export default function QuickServiceBar() {
             </a>
           ))}
 
-          <a
-            href={BUSINESS_INFO.phoneLink}
-            className="flex items-center space-x-4 p-4 rounded-2xl bg-gradient-to-r from-primary-dark to-primary-royal text-white shadow-lg shadow-slate-900/10 hover:shadow-xl hover:shadow-slate-900/20 transition-all hover:-translate-y-0.5 group"
+          <div
+            className="flex items-center space-x-4 p-4 rounded-2xl bg-gradient-to-r from-primary-dark to-primary-royal text-white shadow-lg shadow-slate-900/10"
           >
-            <div className="p-3 rounded-xl bg-white/10 text-accent-cyan group-hover:scale-115 transition-transform">
+            <div className="p-3 rounded-xl bg-white/10 text-accent-cyan">
               <PhoneCall className="w-5 h-5 animate-pulse" />
             </div>
-            <div className="text-left">
+            <div className="text-left select-none">
               <div className="text-[10px] uppercase font-bold tracking-widest text-slate-300">
                 Call Us Directly
               </div>
-              <div className="text-base font-extrabold tracking-tight text-white mt-0.5">
-                {BUSINESS_INFO.phone}
+              <div className="text-[13px] font-extrabold tracking-tight text-white mt-0.5">
+                <a href={BUSINESS_INFO.phoneLink} className="hover:text-accent-cyan transition-colors">{BUSINESS_INFO.phone}</a>
+              </div>
+              <div className="text-[13px] font-extrabold tracking-tight text-white">
+                <a href={BUSINESS_INFO.phoneLink2} className="hover:text-accent-cyan transition-colors">{BUSINESS_INFO.phone2}</a>
               </div>
             </div>
-          </a>
+          </div>
 
         </div>
       </div>

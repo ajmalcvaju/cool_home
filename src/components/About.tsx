@@ -157,13 +157,22 @@ export default function About() {
                 <span>Book Service Now</span>
                 <ArrowRight className="w-4 h-4 text-accent-cyan" />
               </a>
-              <a
-                href={BUSINESS_INFO.phoneLink}
-                className="flex items-center space-x-2 text-primary-royal hover:text-primary-blue font-bold text-sm px-4 py-2 rounded-lg transition-colors"
-              >
-                <Phone className="w-4 h-4 text-primary-blue" />
-                <span>Call Us: {BUSINESS_INFO.phone}</span>
-              </a>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <a
+                  href={BUSINESS_INFO.phoneLink}
+                  className="flex items-center space-x-2 text-primary-royal hover:text-primary-blue font-bold text-sm px-4 py-2 rounded-lg transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-primary-blue animate-pulse" />
+                  <span>Call {BUSINESS_INFO.phone}</span>
+                </a>
+                <a
+                  href={BUSINESS_INFO.phoneLink2}
+                  className="flex items-center space-x-2 text-primary-royal hover:text-primary-blue font-bold text-sm px-4 py-2 rounded-lg transition-colors"
+                >
+                  <Phone className="w-4 h-4 text-primary-blue" />
+                  <span>Call {BUSINESS_INFO.phone2}</span>
+                </a>
+              </div>
             </div>
 
           </div>

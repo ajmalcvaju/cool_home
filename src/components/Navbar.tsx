@@ -82,15 +82,21 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a
-              href={BUSINESS_INFO.phoneLink}
-              className="flex items-center space-x-2 text-slate-700 hover:text-primary-blue font-semibold transition-colors group cursor-pointer"
-            >
-              <span className="p-2 rounded-full bg-slate-100 group-hover:bg-sky-100 transition-colors">
-                <Phone className="w-4 h-4 text-primary-blue" />
-              </span>
-              <span className="text-xs font-bold">{BUSINESS_INFO.phone}</span>
-            </a>
+            <div className="flex flex-col items-end text-slate-700 select-none">
+              <a
+                href={BUSINESS_INFO.phoneLink}
+                className="flex items-center space-x-1.5 hover:text-primary-blue font-bold text-xs transition-colors cursor-pointer group"
+              >
+                <Phone className="w-3.5 h-3.5 text-primary-blue shrink-0 animate-pulse" />
+                <span>{BUSINESS_INFO.phone}</span>
+              </a>
+              <a
+                href={BUSINESS_INFO.phoneLink2}
+                className="flex items-center space-x-1.5 hover:text-primary-blue font-bold text-[10px] text-neutral-muted transition-colors cursor-pointer mt-0.5"
+              >
+                <span>{BUSINESS_INFO.phone2}</span>
+              </a>
+            </div>
             <a
               href="/contact#booking-form"
               className="flex items-center space-x-2 bg-accent-orange hover:bg-accent-orange-hover text-white px-5 py-2.5 rounded-full font-bold text-xs shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/30 transform hover:-translate-y-0.5 transition-all cursor-pointer"
@@ -175,17 +181,26 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
 
           {/* Footer Call-to-actions */}
           <div className="flex flex-col sm:flex-row gap-2 pt-4 border-t border-slate-100">
-            <a
-              href={BUSINESS_INFO.phoneLink}
-              className="flex items-center justify-center space-x-3 flex-1 bg-white hover:bg-slate-50 text-slate-800 py-3.5 rounded-2xl font-bold border border-slate-200 transition-all text-sm cursor-pointer"
-            >
-              <Phone className="w-4 h-4 text-primary-blue animate-pulse" />
-              <span>{BUSINESS_INFO.phone}</span>
-            </a>
+            <div className="flex flex-col space-y-1.5 flex-1">
+              <a
+                href={BUSINESS_INFO.phoneLink}
+                className="flex items-center justify-center space-x-2.5 bg-white hover:bg-slate-50 text-slate-800 py-2.5 rounded-xl font-bold border border-slate-200 transition-all text-[13px] cursor-pointer"
+              >
+                <Phone className="w-4 h-4 text-primary-blue animate-pulse" />
+                <span>{BUSINESS_INFO.phone}</span>
+              </a>
+              <a
+                href={BUSINESS_INFO.phoneLink2}
+                className="flex items-center justify-center space-x-2.5 bg-white hover:bg-slate-50 text-slate-800 py-2.5 rounded-xl font-bold border border-slate-200 transition-all text-[13px] cursor-pointer"
+              >
+                <Phone className="w-4 h-4 text-primary-blue" />
+                <span>{BUSINESS_INFO.phone2}</span>
+              </a>
+            </div>
             <a
               href="/contact#booking-form"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center space-x-3 flex-1 bg-accent-orange hover:bg-accent-orange-hover text-white py-3.5 rounded-2xl font-bold shadow-md hover:shadow-lg transition-all cursor-pointer text-sm"
+              className="flex items-center justify-center space-x-3 flex-1 bg-accent-orange hover:bg-accent-orange-hover text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all cursor-pointer text-sm min-h-[88px] sm:min-h-0"
             >
               <Calendar className="w-4 h-4" />
               <span>Book a Service</span>
