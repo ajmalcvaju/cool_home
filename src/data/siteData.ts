@@ -54,7 +54,7 @@ export const BUSINESS_INFO = {
   whatsapp2: "+91 94976 29575",
   whatsappLink2: "https://wa.me/919497629575?text=Hello%20Cool%20Home%2C%20I%20would%20like%20to%20book%20a%20service.",
   email: "info@coolhomeplaceholder.com",
-  address: "Vadakara Bus Stand, Vadakara, Kozhikode - 673101, Kerala",
+  address: "New Bus Stand, Vadakara, Kozhikode - 673101, Kerala",
   hours: "Monday - Sunday: 8:00 AM - 9:00 PM",
   directionsUrl: "https://google.com/maps/search/?api=1&query=11.5889494,75.5887989",
 };

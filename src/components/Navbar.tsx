@@ -200,7 +200,7 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
             <a
               href="/contact#booking-form"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center space-x-3 flex-1 bg-accent-orange hover:bg-accent-orange-hover text-white rounded-xl font-bold shadow-md hover:shadow-lg transition-all cursor-pointer text-sm min-h-[88px] sm:min-h-0"
+              className="flex items-center justify-center space-x-3 flex-1 bg-accent-orange hover:bg-accent-orange-hover text-white py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition-all cursor-pointer text-sm"
             >
               <Calendar className="w-4 h-4" />
               <span>Book a Service</span>
